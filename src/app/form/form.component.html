@@ -1,0 +1,73 @@
+<form (submit)="onSubmit()" #form="ngForm">
+  <div>
+    <input
+      type="text"
+      placeholder="Name"
+      name="name"
+      required
+      [(ngModel)]="user.name"
+      #nameInput="ngModel"
+    />
+    <p *ngIf="nameInput.invalid && nameInput.touched">
+      Por favor introduce un nombre válido
+    </p>
+  </div>
+  <div>
+    <input
+      type="text"
+      placeholder="Occupation"
+      name="occupation"
+      [(ngModel)]="user.occupation"
+      #occupationInput="ngModel"
+    />
+    <p *ngIf="occupationInput.invalid && occupationInput.touched">
+      Por favor introduce una ocupación válida
+    </p>
+  </div>
+  <div>
+    <input
+      type="email"
+      placeholder="E-mail"
+      name="email"
+      required
+      email
+      [(ngModel)]="user.email"
+      #emailInput="ngModel"
+    />
+    <p *ngIf="emailInput.invalid && emailInput.touched">
+      Por favor introduce un mail válido
+    </p>
+  </div>
+  <div>
+    <input
+      type="text"
+      placeholder="Subject"
+      name="subject"
+      required
+      [(ngModel)]="user.subject"
+      #subjectInput="ngModel"
+    />
+    <p *ngIf="subjectInput.invalid && subjectInput.touched">
+      Por favor introduce un asunto válido
+    </p>
+  </div>
+  <div>
+    <textarea
+      type="text"
+      placeholder="Content"
+      name="content"
+      minlength="10"
+      maxlength="255"
+      required
+      [(ngModel)]="user.content"
+      #contentInput="ngModel"
+    ></textarea>
+    <p *ngIf="contentInput.invalid && contentInput.touched">
+      Por favor introduce un texto válido
+    </p>
+  </div>
+  <div>
+    <!--<p *ngIf="roleInput.invalid && roleInput.touched">Por favor selecciona un rol</p> -->
+  </div>
+  <button [disabled]="form.invalid" type="submit">Enviar</button>
+</form>
